@@ -92,6 +92,14 @@ class ArvoreInducao:
     def result(self):
         print(self.arvore_inducao)
 
+    def existe(self,registro):
+        classificacao = "Não existe classificação para esse registro"
+        for conjunto in CE:
+            if registro == conjunto[2:]:
+                classificacao = "Classificacao: "+conjunto[1]
+        print(classificacao)
+
+
 
 CE =[]
 
@@ -110,9 +118,8 @@ CE.append((11, 'ALTO',      'BOA',                      'ALTA',     'NENHUMA',  
 CE.append((12, 'MODERADO',  'BOA',                      'ALTA',     'NENHUMA',      '15 A 35MIL'))
 CE.append((13, 'BAIXO',     'BOA',                      'ALTA',     'NENHUMA',      'ACIMA 35MIL'))
 CE.append((14, 'ALTO',      'RUIM',                     'ALTA',     'NENHUMA',      '15 A 35MIL'))
-CE.append((15, 'MODERADO',  'RUIM',                     'ALTA',     'NENHUMA',      '15 A 35MIL'))
-CE.append((16, 'BAIXO',     'RUIM',                     'ALTA',     'NENHUMA',      '15 A 35MIL'))
-CE.append((17, 'BAIXO',     'RUIM',                     'ALTA',     'NENHUMA',      '15 A 35MIL'))
+
+
 
 PR = []
 for atributo in CE[0][2:]:
@@ -122,7 +129,7 @@ for atributo in CE[0][2:]:
 inducao = ArvoreInducao()
 inducao.induzir_arvore(CE,PR)
 inducao.result()
-
+#inducao.existe(("RUIM",'ALTA','NENHUMA','0 A 15MIL'))
 
 
 
