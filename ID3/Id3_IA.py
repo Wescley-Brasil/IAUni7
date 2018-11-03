@@ -3,7 +3,7 @@ from graphviz import Digraph
 import os
 
 class ArvoreInducao:
-
+    #Comentar as 2 linhas abaixo caso não possua a biblioteca Graphivz
     os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
     grafico = Digraph(comment='Arvore inducao')
 
@@ -101,7 +101,7 @@ class ArvoreInducao:
 
 
     #funcao que gera a arvore em formato de gráfico
-    #Caso não tenha a biblioteca Graphviz instalada essa linha deve ser comentada pois retornara erro
+    #Caso não tenha a biblioteca Graphviz instalada essa funcao deve ser comentada pois retornara erro
     def result(self):
         for registro in self.arvore_inducao:
             self.grafico.node(str(registro[0]), str(registro[2]))
@@ -113,14 +113,18 @@ class ArvoreInducao:
 
 
     #funcao que complementa a funcao que gera o grafico da arvore de inducao
-    #Caso não tenha a biblioteca Graphviz instalada essa linha deve ser comentada pois retornara erro
+    #Caso não tenha a biblioteca Graphviz instalada essa funcao deve ser comentada pois retornara erro
     def buscaPai(self,noFilho):
         for noPai in self.arvore_inducao:
             if noPai[0] == noFilho[1]:
                 return noPai[0]
+    
+    
+    def impressaoResultado(self):
+        print(self.arvore_inducao)
 
 
-
+        
 
 if __name__ == '__main__':
 
@@ -149,7 +153,8 @@ if __name__ == '__main__':
 
     inducao = ArvoreInducao()
     inducao.induzir(CE)
+    #Caso não tenha a biblioteca grafica comentar a linha abaixo
     inducao.result()
-
+    inducao.impressaoResultado()
 
 
