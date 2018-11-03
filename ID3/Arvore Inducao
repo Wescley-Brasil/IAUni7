@@ -1,0 +1,88 @@
+// Arvore inducao
+digraph {
+	1 [label="HISTORICO DE CREDITO"]
+	2 [label=DESCONHECIDA]
+	3 [label=DIVIDA]
+	4 [label=BAIXA]
+	5 [label=GARANTIA]
+	6 [label=NENHUMA]
+	7 [label=RENDA]
+	8 [label="ACIMA 35MIL"]
+	9 [label=BAIXO]
+	10 [label="0 A 15MIL"]
+	11 [label=ALTO]
+	12 [label="15 A 35MIL"]
+	13 [label=MODERADO]
+	14 [label=ADEQUADA]
+	15 [label=BAIXO]
+	16 [label=ALTA]
+	17 [label=ALTO]
+	18 [label=BOA]
+	19 [label=DIVIDA]
+	20 [label=BAIXA]
+	21 [label=BAIXO]
+	22 [label=ALTA]
+	23 [label=GARANTIA]
+	24 [label=NENHUMA]
+	25 [label=RENDA]
+	26 [label="ACIMA 35MIL"]
+	27 [label=BAIXO]
+	28 [label="0 A 15MIL"]
+	29 [label=ALTO]
+	30 [label="15 A 35MIL"]
+	31 [label=MODERADO]
+	32 [label=ADEQUADA]
+	33 [label=BAIXO]
+	34 [label=RUIM]
+	35 [label=DIVIDA]
+	36 [label=BAIXA]
+	37 [label=GARANTIA]
+	38 [label=NENHUMA]
+	39 [label=ALTO]
+	40 [label=ADEQUADA]
+	41 [label=MODERADO]
+	42 [label=ALTA]
+	43 [label=ALTO]
+	1 -> 2
+	2 -> 3
+	3 -> 4
+	4 -> 5
+	5 -> 6
+	6 -> 7
+	7 -> 8
+	8 -> 9
+	7 -> 10
+	10 -> 11
+	7 -> 12
+	12 -> 13
+	5 -> 14
+	14 -> 15
+	3 -> 16
+	16 -> 17
+	1 -> 18
+	18 -> 19
+	19 -> 20
+	20 -> 21
+	19 -> 22
+	22 -> 23
+	23 -> 24
+	24 -> 25
+	25 -> 26
+	26 -> 27
+	25 -> 28
+	28 -> 29
+	25 -> 30
+	30 -> 31
+	23 -> 32
+	32 -> 33
+	1 -> 34
+	34 -> 35
+	35 -> 36
+	36 -> 37
+	37 -> 38
+	38 -> 39
+	37 -> 40
+	40 -> 41
+	35 -> 42
+	42 -> 43
+}
