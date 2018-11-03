@@ -10,4 +10,4 @@ Caso queira rodar o codigo fonte, entao deve baixar os Pacotes da biblioteca Gra
 2. Baixa a biblioteca Graphviz https://graphviz.gitlab.io/_pages/Download/Download_windows.html.
 3. Definir as variaveis de ambiente PATH no windows.
 
-Caso nao queira rodar no codigo a parte que gerar o grafico, entao comentar as linhas marcadas no codigo.
+Caso nao queira rodar o codigo e não tenha as bibliotecas, então deve comentar as linhas marcadas no codigo que geram o grafico.
