@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     per = Perceptron();
     per.iniciar_perceptron(registros_treinamento[1:])
-    per.induzir_novo_registro([2,2,1])
-
+    #per.induzir_novo_registro([2,2,1])
+    #per.gerar_perceptron(registros_treinamento[1:])
 
 
