@@ -11,3 +11,6 @@ Caso queira rodar o codigo fonte, entao deve baixar os Pacotes da biblioteca Gra
 3. Definir as variaveis de ambiente PATH no windows.
 
 Caso queira rodar o codigo e não tenha as bibliotecas de geração gráfica, então deve comentar as linhas marcadas no codigo que geram o grafico.
+
+### Perceptron
+Para rodar o perceptron basta baixar o arquivo perceptron.py dentro da pasta Perceptron e rodar.
