@@ -10,20 +10,29 @@ class Perceptron():
     erro = 0
     registro_validados =[]
     fim_perceptron = False
-    conti = 0
+
+
+
+    def inserir_vies(self,registros):
+        #So entra se o registro for de treinamento pois possui classificação
+        if len(registros) > 2 :
+            registros.pop(2)
+        registros.append(self.vies)
+        return registros
 
     def soma_registros(self,registros):
         resultado = 0
         indice = 0
-        for registro in registros[0:(len(registros)-1)]:
+        registros = self.inserir_vies(registros)
+        for registro in registros:
             resultado += registro * self.pesos[indice]
             indice+=1
-        resultado += self.vies * self.pesos[indice]
         if resultado >= 0:
-            resultado = 1
+            ativacao = 1
         else:
-            resultado = -1
-        return resultado
+            ativacao = -1
+        print("Registro: " + str(registros) + " Com Pesos: " + str(self.pesos) + " sua soma é(" + str(resultado) + ") e seu F(x)= " + str(ativacao))
+        return ativacao
 
     def ativacao(self,resultado,classe):
         if resultado == classe:
@@ -35,8 +44,7 @@ class Perceptron():
 
     def recalcular_pesos(self,registros):
         resultado = self.erro * self.aprendizagem
-        registros.pop(2)
-        registros.append(self.vies)
+        registros = self.inserir_vies(registros)
         resultado_mult_lista = [valor * resultado for valor in registros]
         novos_pesos =[]
         for indice in range(len(resultado_mult_lista)):
@@ -51,17 +59,17 @@ class Perceptron():
             for registro in conjunto_registros:
                 registro_classificado = False
                 while registro_classificado is False:
-                    self.conti +=1
-                    resultado = self.soma_registros(registro)
-                    if self.ativacao(resultado,registro[2]) is True:
+                    resultado = self.soma_registros(registro[:])
+                    classe = registro[2]
+                    if self.ativacao(resultado,classe) is True:
                         self.registro_validados.pop(0)
                         registro_classificado = True
                     else:
-                        self.calculo_erro(resultado,registro[2])
-                        self.recalcular_pesos(deepcopy(registro))
+                        self.calculo_erro(resultado,classe)
+                        self.recalcular_pesos(registro[:])
                         self.registro_validados.clear()
-                        return False
-        print('Pesos: ',self.pesos)
+                        return "Recalcular registros"
+        print('Pesos Final: ',self.pesos)
         self.fim_perceptron = True
 
     def reiniciar_perceptron(self):
@@ -73,8 +81,8 @@ class Perceptron():
         self.fim_perceptron = False
 
     def induzir_novo_registro(self,registro):
-        resultado = self.soma_registros(registro)
-        print('Classificacao: ',resultado)
+        resultado = self.soma_registros(registro[:])
+        print('Classificacao para o registro:',registro,"é:",resultado)
 
 
     def iniciar_perceptron(self,conjunto_registros):
@@ -86,8 +94,7 @@ if __name__ == '__main__':
 
 
     registros_treinamento = [
-        ('Registro', 'Registro', 'Classe')
-        , [1, 1, 1]
+          [1, 1, 1]
         , [9.4, 6.4, -1]
         , [2.5, 2.1, 1]
         , [8, 7.7, -1]
@@ -96,13 +103,15 @@ if __name__ == '__main__':
         , [7, 7, -1]
         , [2.8, 0.8, 1]
         , [1.2, 3, 1]
-        , [7.8, 6.8, -1]
+        , [7.8, 6.1, -1]
     ]
 
 
     per = Perceptron();
-    per.iniciar_perceptron(registros_treinamento[1:])
-    #per.induzir_novo_registro([2,2,1])
-    #per.gerar_perceptron(registros_treinamento[1:])
+    per.iniciar_perceptron(registros_treinamento)
+
+    #Submeter novo registro [5,5]
+    per.induzir_novo_registro([5,5])
+
 
 
